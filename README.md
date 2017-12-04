@@ -1,4 +1,4 @@
-# 歐付寶 全方位(All In One)金流介接Node.js 第二版
+﻿# 歐付寶 全方位(All In One)金流介接Node.js 第二版
 ---
 
 ## 1. 介紹
@@ -24,7 +24,7 @@
 
 
 ## 4. 聯絡我們
-  - 歐付寶技術客服信箱: techsupport@opay.com.tw
+  - 歐付寶技術客服信箱: techsupport@opay.tw
 
 
 
