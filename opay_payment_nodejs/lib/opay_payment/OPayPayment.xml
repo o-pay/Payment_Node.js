@@ -2,8 +2,8 @@
 <allPayPayment>
   <AioCheckOut>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/Cashier/AioCheckOut/V4</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/Cashier/AioCheckOut/V4</url>
+        <url type="Production">https://payment.opay.tw/Cashier/AioCheckOut/V4</url>
+        <url type="Test">https://payment-stage.opay.tw/Cashier/AioCheckOut/V4</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -290,8 +290,8 @@
   </AioCheckOut>
   <QueryTradeInfo>
     <ServiceAddress>
-        <url type="Production">https://payment.allpay.com.tw/Cashier/QueryTradeInfo/V4</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/Cashier/QueryTradeInfo/V4</url>
+        <url type="Production">https://payment.opay.tw/Cashier/QueryTradeInfo/V4</url>
+        <url type="Test">https://payment-stage.opay.tw/Cashier/QueryTradeInfo/V4</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -317,8 +317,8 @@
 
   <QueryCreditCardPeriodInfo>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/Cashier/QueryCreditCardPeriodInfo</url>
-        <url type="Test">https://payment-stage.allpay.com.tw/Cashier/QueryCreditCardPeriodInfo</url>
+        <url type="Production">https://payment.opay.tw/Cashier/QueryCreditCardPeriodInfo</url>
+        <url type="Test">https://payment-stage.opay.tw/Cashier/QueryCreditCardPeriodInfo</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -341,8 +341,8 @@
 
   <DoAction>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/CreditDetail/DoAction</url>
-        <url type="Test">https://payment-stage.allpay.com.tw/CreditDetail/DoAction</url>
+        <url type="Production">https://payment.opay.tw/CreditDetail/DoAction</url>
+        <url type="Test">https://payment-stage.opay.tw/CreditDetail/DoAction</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -379,8 +379,8 @@
 
   <AioChargeback>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/Cashier/AioChargeback</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/Cashier/AioChargeback</url>
+        <url type="Production">https://payment.opay.tw/Cashier/AioChargeback</url>
+        <url type="Test">https://payment-stage.opay.tw/Cashier/AioChargeback</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -414,8 +414,8 @@
 
   <Capture>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/Cashier/Capture</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/Cashier/Capture</url>
+        <url type="Production">https://payment.opay.tw/Cashier/Capture</url>
+        <url type="Test">https://payment-stage.opay.tw/Cashier/Capture</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -464,8 +464,8 @@
 
   <TradeNoAio>
     <ServiceAddress>
-        <url type="Production">https://vendor.allPay.com.tw/PaymentMedia/TradeNoAio</url>
-        <url type="Test">https://vendor-stage.allPay.com.tw/PaymentMedia/TradeNoAio</url>
+        <url type="Production">https://vendor.opay.tw/PaymentMedia/TradeNoAio</url>
+        <url type="Test">https://vendor-stage.opay.tw/PaymentMedia/TradeNoAio</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -520,8 +520,8 @@
 
   <QueryTradeV2>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/CreditDetail/QueryTrade/V2</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/CreditDetail/QueryTrade/V2</url>
+        <url type="Production">https://payment.opay.tw/CreditDetail/QueryTrade/V2</url>
+        <url type="Test">https://payment-stage.opay.tw/CreditDetail/QueryTrade/V2</url>
     </ServiceAddress>
     <Config>
         <switchparam>
@@ -549,8 +549,8 @@
 
   <FundingReconDetail>
     <ServiceAddress>
-        <url type="Production">https://payment.allPay.com.tw/CreditDetail/FundingReconDetail</url>
-        <url type="Test">https://payment-stage.allPay.com.tw/CreditDetail/FundingReconDetail</url>
+        <url type="Production">https://payment.opay.tw/CreditDetail/FundingReconDetail</url>
+        <url type="Test">https://payment-stage.opay.tw/CreditDetail/FundingReconDetail</url>
     </ServiceAddress>
     <Config>
         <switchparam>
