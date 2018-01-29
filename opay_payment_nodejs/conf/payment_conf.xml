@@ -22,7 +22,6 @@
         <!--<Method>WebATM</Method>-->
         <!--<Method>ATM</Method>-->
         <!--<Method>CVS</Method>-->
-        <!--<Method>Tenpay</Method>-->
         <!--<Method>TopUpUsed</Method>-->
     </IgnorePayment>
 

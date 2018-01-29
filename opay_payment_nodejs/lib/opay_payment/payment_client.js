@@ -36,16 +36,13 @@ class OPayPaymentClient{
         let unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'];
         this._aiochkout_base_proc(parameters, invoice, unsupport, 'Credit');
         parameters['CreditInstallment'] = installment;
-        if (parseInt(parameters['TotalAmount']) !== parseInt(amount)){
-            parameters['InstallmentAmount'] = amount;
-        }
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
     aio_check_out_credit_period(period_info, parameters, invoice={}){
         // 'PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'
-        let unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'CreditInstallment', 'InstallmentAmount'];
+        let unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'CreditInstallment'];
         this._aiochkout_base_proc(parameters, invoice, unsupport, 'Credit');
         if (period_info.constructor === Object){
             let period_args = ['PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'];
@@ -89,6 +86,20 @@ class OPayPaymentClient{
     aio_check_out_webatm(parameters, invoice = {}){
         let unsupport = ['IgnorePayment'];
         this._aiochkout_base_proc(parameters, invoice, unsupport, 'WebATM');
+        let html = this._aiochkout_pos_proc(parameters);
+        return html;
+    }
+
+    aio_check_out_account_link(parameters, invoice = {}){
+        let unsupport = ['IgnorePayment'];
+        this._aiochkout_base_proc(parameters, invoice, unsupport, 'AccountLink');
+        let html = this._aiochkout_pos_proc(parameters);
+        return html;
+    }
+
+    aio_check_out_weixinpay(parameters, invoice = {}){
+        let unsupport = ['IgnorePayment'];
+        this._aiochkout_base_proc(parameters, invoice, unsupport, 'WeiXinpay');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }

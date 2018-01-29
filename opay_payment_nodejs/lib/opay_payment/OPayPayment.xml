@@ -56,11 +56,6 @@
             <param type="String"  require="0" name="CreditInstallment" category="Divide">
                 <pattern>^(3|6|12|18|24){1}(,3|,6|,12|,18|,24){0,4}$</pattern>
             </param>
-            <param type="Int"  require="0" name="InstallmentAmount" category="Divide">
-                <mode>GE</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
-                <maximum></maximum>
-                <minimal>1</minimal>
-            </param>
             <param type="Int"  require="0" name="PeriodAmount" category="Period">
                 <mode>GE</mode> <!--BETWEEN, GE, LE, EXCLUDE  -->
                 <maximum></maximum>
@@ -86,6 +81,8 @@
             </param>
         </condparam>
         <option>WebATM</option>
+        <option>WeiXinpay</option>
+        <option>AccountLink</option>
         <option>ATM</option>
         <condparam owner="ATM">
             <param type="Int" require="0" name="ExpireDate">
@@ -145,11 +142,26 @@
         <pattern>^.{0,100}$</pattern>
       </param>
       <param  type="DepOpt" main="ChoosePayment"  require="0" name="ChooseSubPayment">
+        <mainoption name="AccountLink">
+            <option>AccountLink</option>
+        </mainoption>
+        <mainoption name="WeiXinpay">
+            <option>WeiXinpay</option>
+            <option></option>
+        </mainoption>
         <mainoption name="ATM">
             <option>TAISHIN</option>
             <option>ESUN</option>
+            <option>HUANAN</option>
+            <option>BOT</option>
+            <option>FUBON</option>
             <option>CHINATRUST</option>
             <option>FIRST</option>
+            <option>LAND</option>
+            <option>CATHAY</option>
+            <option>Tachong</option>
+            <option>Sinopac</option>
+            <option>CHB</option>
         </mainoption>
         <mainoption name="Tenpay">
               <option>Tenpay</option>
@@ -162,9 +174,16 @@
         </mainoption>
         <mainoption name="WebATM">
             <option>TAISHIN</option>
-            <option>SHINKONG</option>
+            <option>ESUN</option>
+            <option>HUANAN</option>
+            <option>BOT</option>
+            <option>FUBON</option>
+            <option>CHINATRUST</option>
             <option>FIRST</option>
+            <option>CATHAY</option>
             <option>MEGA</option>
+            <option>YUANTA</option>
+            <option>LAND</option>
         </mainoption>
         <mainoption name="CVS">
             <option>CVS</option>

@@ -3,7 +3,7 @@
  */
 class OPayPaymentVersion {
     constructor(){
-        this.version = '1.0.0';
+        this.version = '1.0.2';
     }
 }
 module.exports = OPayPaymentVersion;
