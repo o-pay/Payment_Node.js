@@ -141,7 +141,7 @@ class PaymentVerifyBase{
             pattern[opt_params] = arr.toString();
         });
         if (apiname === 'AioCheckOut'){
-            pattern['InvoiceMark'] = '';
+
             pattern['PaymentInfoURL'] = pattern['PaymentInfoURL'].slice(11,21);
             pattern['ClientRedirectURL'] = pattern['ClientRedirectURL'].slice(11,21);
             pattern['Desc_1'] = pattern['Desc_1'].slice(10,20);

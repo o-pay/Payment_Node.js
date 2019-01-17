@@ -16,34 +16,34 @@ class OPayPaymentClient{
         this.verify_aiochkout = new verify.AioCheckOutParamVerify();
     }
 
-    aio_check_out_all(parameters, invoice={}){
+    aio_check_out_all(parameters){
         let unsupport = [];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'ALL');
+        this._aiochkout_base_proc(parameters , unsupport, 'ALL');
         // handle Ignore Payment
         parameters['IgnorePayment'] = this.helper.get_ignore_pay().join('#');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_credit_onetime(parameters, invoice={}){
+    aio_check_out_credit_onetime(parameters,){
         let unsupport = [];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'Credit');
+        this._aiochkout_base_proc(parameters, unsupport, 'Credit');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_credit_divide(parameters, invoice={}, installment, amount){
+    aio_check_out_credit_divide(parameters, installment, amount){
         let unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'Credit');
+        this._aiochkout_base_proc(parameters , unsupport, 'Credit');
         parameters['CreditInstallment'] = installment;
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_credit_period(period_info, parameters, invoice={}){
+    aio_check_out_credit_period(period_info, parameters){
         // 'PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'
         let unsupport = ['HoldTradeAMT', 'IgnorePayment', 'Redeem', 'CreditInstallment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'Credit');
+        this._aiochkout_base_proc(parameters , unsupport, 'Credit');
         if (period_info.constructor === Object){
             let period_args = ['PeriodAmount', 'PeriodType', 'Frequency', 'ExecTimes', 'PeriodReturnURL'];
             period_args.sort().forEach(function (pname) {
@@ -61,9 +61,9 @@ class OPayPaymentClient{
         }
     }
 
-    aio_check_out_atm(parameters, url_return_payinfo = '', exp_period = '', client_redirect = '', invoice = {}){
+    aio_check_out_atm(parameters, url_return_payinfo = '', exp_period = '', client_redirect = ''){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'ATM');
+        this._aiochkout_base_proc(parameters , unsupport, 'ATM');
         if (exp_period === ''){
             delete parameters['ExpireDate'];
         } else {
@@ -83,30 +83,30 @@ class OPayPaymentClient{
         return html;
     }
 
-    aio_check_out_webatm(parameters, invoice = {}){
+    aio_check_out_webatm(parameters){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'WebATM');
+        this._aiochkout_base_proc(parameters , unsupport, 'WebATM');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_account_link(parameters, invoice = {}){
+    aio_check_out_account_link(parameters){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'AccountLink');
+        this._aiochkout_base_proc(parameters, unsupport, 'AccountLink');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_weixinpay(parameters, invoice = {}){
+    aio_check_out_weixinpay(parameters){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'WeiXinpay');
+        this._aiochkout_base_proc(parameters, unsupport, 'WeiXinpay');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_cvs(cvs_info, parameters, invoice = {}, client_redirect_url = ''){
+    aio_check_out_cvs(cvs_info, parameters, client_redirect_url = ''){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'CVS');
+        this._aiochkout_base_proc(parameters, unsupport, 'CVS');
         if (cvs_info.constructor === Object){
             let cvs_args = ['StoreExpireDate', 'Desc_1', 'Desc_2', 'Desc_3', 'Desc_4', 'PaymentInfoURL'];
             cvs_args.sort().forEach(function (pname) {
@@ -128,22 +128,22 @@ class OPayPaymentClient{
         }
     }
 
-    aio_check_out_tenpay(parameters, invoice = {}, expire_dt = ''){
+    aio_check_out_tenpay(parameters, expire_dt = ''){
         let unsupport = ['HoldTradeAMT'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'Tenpay');
+        this._aiochkout_base_proc(parameters, unsupport, 'Tenpay');
         parameters['ExpireTime'] = expire_dt;
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    aio_check_out_top_up(parameters, invoice = {}){
+    aio_check_out_top_up(parameters){
         let unsupport = ['IgnorePayment'];
-        this._aiochkout_base_proc(parameters, invoice, unsupport, 'TopUpUsed');
+        this._aiochkout_base_proc(parameters , unsupport, 'TopUpUsed');
         let html = this._aiochkout_pos_proc(parameters);
         return html;
     }
 
-    _aiochkout_base_proc(params, inv, unsupport_param, pay_method){
+    _aiochkout_base_proc(params, unsupport_param, pay_method){
         if (params.constructor === Object){
             // Remove HoldTradeAMT, IgnorePayment
             if (unsupport_param.constructor === Array){
@@ -165,16 +165,7 @@ class OPayPaymentClient{
                 params['PlatformID'] = '';
                 params['MerchantID'] = this.helper.get_mercid();
             }
-            // InvoiceMark based on keyword argument: invoice
-            if (inv.constructor === Object && Object.keys(inv).length === 0){
-                params['InvoiceMark'] = 'N';
-            } else {
-                params['InvoiceMark'] = 'Y';
-                this.verify_aiochkout.verify_aio_inv_param(inv);
-                // this.verify_aiochkout.AioCheckOutParamVerify().verify_aio_inv_param(inv);
-                // merge param & inv param
-                Object.assign(params, inv);
-            }
+
         } else {
             throw new OPayError.OPayInvalidParam(`Received parameter object must be a Object.`);
         }
